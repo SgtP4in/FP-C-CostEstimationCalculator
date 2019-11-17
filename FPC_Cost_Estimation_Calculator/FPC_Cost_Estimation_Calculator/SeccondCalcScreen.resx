@@ -117,4 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="questionsLabel.Text" xml:space="preserve">
+    <value>Does system require reliable backup and recovery?
+Are data communications required?
+Are there distributed processing functions?
+Is performance critical?
+Will the system run in an existing, heavily utilized operational environment?
+Does the system require on-line data entry?
+Does the on-line data entry require the input transaction to be built over multiple screens or
+operations?
+Are the master files updated on-line?
+Are the inputs, outputs, files, or inquiries complex?
+Is the code designed to be reusable?
+Are conversion and installation included in the design?
+Is the system designed for multiple installations in different organizations?
+Is the system designed to facilitate change and ease of use by the user?</value>
+  </data>
 </root>

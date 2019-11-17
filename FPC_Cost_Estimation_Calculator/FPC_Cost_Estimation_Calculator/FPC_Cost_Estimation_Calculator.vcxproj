@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="FirstCalcScreen.cpp" />
     <ClCompile Include="SeccondCalcScreen.cpp" />
+    <ClCompile Include="ThirdCalcScreen.cpp" />
     <ClCompile Include="WelcomeScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +144,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SeccondCalcScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ThirdCalcScreen.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="WelcomeScreen.h">
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeccondCalcScreen.resx">
       <DependentUpon>SeccondCalcScreen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThirdCalcScreen.resx">
+      <DependentUpon>ThirdCalcScreen.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeScreen.resx">
       <DependentUpon>WelcomeScreen.h</DependentUpon>

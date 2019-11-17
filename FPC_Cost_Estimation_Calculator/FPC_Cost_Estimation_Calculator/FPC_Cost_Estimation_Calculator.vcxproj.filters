@@ -24,6 +24,9 @@
     <ClCompile Include="SeccondCalcScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThirdCalcScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WelcomeScreen.h">
@@ -38,12 +41,18 @@
     <ClInclude Include="SeccondCalcScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThirdCalcScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="WelcomeScreen.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstCalcScreen.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeccondCalcScreen.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
