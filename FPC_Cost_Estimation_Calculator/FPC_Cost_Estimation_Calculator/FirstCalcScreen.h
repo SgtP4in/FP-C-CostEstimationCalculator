@@ -89,6 +89,7 @@ namespace FPCCostEstimationCalculator {
 	private: System::Windows::Forms::NumericUpDown^  simOutUpDown;
 	private: System::Windows::Forms::NumericUpDown^  avgOutUpDown;
 	private: System::Windows::Forms::NumericUpDown^  cmpOutUpDown;
+	private: System::Windows::Forms::Button^  demoButton;
 
 
 
@@ -181,6 +182,7 @@ namespace FPCCostEstimationCalculator {
 			this->simOutUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 			this->avgOutUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 			this->cmpOutUpDown = (gcnew System::Windows::Forms::NumericUpDown());
+			this->demoButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->simUsrInUpDown))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->simUsrOutUpDown))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->avgUsrInUpDown))->BeginInit();
@@ -417,11 +419,22 @@ namespace FPCCostEstimationCalculator {
 			this->cmpOutUpDown->Size = System::Drawing::Size(55, 22);
 			this->cmpOutUpDown->TabIndex = 28;
 			// 
+			// demoButton
+			// 
+			this->demoButton->Location = System::Drawing::Point(54, 362);
+			this->demoButton->Name = L"demoButton";
+			this->demoButton->Size = System::Drawing::Size(75, 23);
+			this->demoButton->TabIndex = 29;
+			this->demoButton->Text = L"DEMO";
+			this->demoButton->UseVisualStyleBackColor = true;
+			this->demoButton->Click += gcnew System::EventHandler(this, &FirstCalcScreen::demoButton_Click);
+			// 
 			// FirstCalcScreen
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(616, 421);
+			this->Controls->Add(this->demoButton);
 			this->Controls->Add(this->cmpOutUpDown);
 			this->Controls->Add(this->avgOutUpDown);
 			this->Controls->Add(this->simOutUpDown);
@@ -499,6 +512,30 @@ namespace FPCCostEstimationCalculator {
 	}
 
 private: System::Void FirstCalcScreen_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+
+		 //inserts placeholder values for demonstration purposes
+private: System::Void demoButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	simUsrInUpDown->Value = 5;
+	avgUsrInUpDown->Value = 5;
+	cmpUsrInUpDown->Value = 6;
+
+	simUsrOutUpDown->Value = 6;
+	avgUsrOutUpDown->Value = 8;
+	cmpUsrOutUpDown->Value = 9;
+
+	simUsrInqUpDown->Value = 7;
+	avgUsrInqUpDown->Value = 7;
+	cmpUsrInqUpDown->Value = 6;
+
+	simFilesUpDown->Value = 8;
+	avgFilesUpDown->Value = 5;
+	cmpFilesUpDown->Value = 3;
+
+	simOutUpDown->Value = 10;
+	avgOutUpDown->Value = 5;
+	cmpOutUpDown->Value = 2;
+
 }
 };
 }

@@ -73,6 +73,16 @@ namespace FPCCostEstimationCalculator {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
+		//Total Function Points Calculation
+		double functionPointCalculation(double Q, double T)
+		{
+			double fp2 = 0.0;
+			fp2 = T * (.65 + .01*Q);
+
+			return fp2;
+		}
+		//End FUnction Points Calculation
+
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -328,7 +338,7 @@ namespace FPCCostEstimationCalculator {
 
 		//calculates total function points using questionare points and points from stage 1
 		double finalFP = 0;
-		//TODO
+		finalFP = functionPointCalculation(qstTot, fp);
 
 		//takes the user to the next calculation stage
 		this->Hide();
