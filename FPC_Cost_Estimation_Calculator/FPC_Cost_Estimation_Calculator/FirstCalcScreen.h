@@ -1,5 +1,5 @@
 #pragma once
-#include "Calculations.h"
+#include "SeccondCalcScreen.h"
 
 namespace FPCCostEstimationCalculator {
 
@@ -98,6 +98,54 @@ namespace FPCCostEstimationCalculator {
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+
+		//Function Point Calculation Functions
+		double functionPointTable(double simpile, double complex, double average, String ^type)
+		{
+			double fp = 0.0;
+			if (type == "input")
+			{
+				simpile = simpile * 3;
+				average = average * 4;
+				complex = complex * 6;
+				fp = simpile + average + complex;
+			}
+			else if (type == "output")
+			{
+				simpile = simpile * 4;
+				average = average * 5;
+				complex = complex * 7;
+				fp = simpile + average + complex;
+			}
+			else if (type == "queries")
+			{
+				simpile = simpile * 3;
+				average = average * 5;
+				complex = complex * 6;
+				fp = simpile + average + complex;
+			}
+			else if (type == "files")
+			{
+				simpile = simpile * 7;
+				average = average * 10;
+				complex = complex * 15;
+				fp = simpile + average + complex;
+			}
+			else if (type == "interface")
+			{
+				simpile = simpile * 5;
+				average = average * 7;
+				complex = complex * 10;
+				fp = simpile + average + complex;
+			}
+			return fp;
+		}
+		double functionPointAddition(double simpile, double complex, double average, String ^type, double fp)
+		{
+			fp = functionPointTable(simpile, average, complex, type) + fp;
+			return fp;
+		}
+		//end function point calculation functions
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -212,11 +260,11 @@ namespace FPCCostEstimationCalculator {
 			// numberOfOutputsLabel
 			// 
 			this->numberOfOutputsLabel->AutoSize = true;
-			this->numberOfOutputsLabel->Location = System::Drawing::Point(88, 253);
+			this->numberOfOutputsLabel->Location = System::Drawing::Point(76, 253);
 			this->numberOfOutputsLabel->Name = L"numberOfOutputsLabel";
-			this->numberOfOutputsLabel->Size = System::Drawing::Size(132, 17);
+			this->numberOfOutputsLabel->Size = System::Drawing::Size(144, 17);
 			this->numberOfOutputsLabel->TabIndex = 6;
-			this->numberOfOutputsLabel->Text = L"Number of Outputs:";
+			this->numberOfOutputsLabel->Text = L"Number of Interfaces:";
 			// 
 			// simpleLabel
 			// 
@@ -433,8 +481,20 @@ namespace FPCCostEstimationCalculator {
 	//transfers the user to the next calculation screen
 	private: System::Void nextScrnButton_Click(System::Object^  sender, System::EventArgs^  e) {
 		
-		//placeholder
-		
+		//Performs function point calculation using input values
+		double fp = 0.0;
+
+		fp = functionPointAddition(double(simUsrInUpDown->Value), double(avgUsrInUpDown->Value), double(cmpUsrInUpDown->Value), "input", fp);
+		fp = functionPointAddition(double(simUsrOutUpDown->Value), double(avgUsrOutUpDown->Value), double(cmpUsrOutUpDown->Value), "output", fp);
+		fp = functionPointAddition(double(simUsrInqUpDown->Value), double(avgUsrInqUpDown->Value), double(cmpUsrInqUpDown->Value), "queries", fp);
+		fp = functionPointAddition(double(simFilesUpDown->Value), double(avgFilesUpDown->Value), double(cmpFilesUpDown->Value), "files", fp);
+		fp = functionPointAddition(double(simOutUpDown->Value), double(avgOutUpDown->Value), double(cmpOutUpDown->Value), "interface", fp);
+
+
+		//brings user to the next calculation stage
+		this->Hide();
+		SeccondCalcScreen^ form3 = gcnew SeccondCalcScreen(fp);
+		form3->ShowDialog();
 
 	}
 

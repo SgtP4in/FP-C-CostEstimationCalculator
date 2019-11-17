@@ -1,4 +1,5 @@
 ﻿  FirstCalcScreen.cpp
+  SeccondCalcScreen.cpp
   WelcomeScreen.cpp
   Generating Code...
   FirstCalcScreen.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
