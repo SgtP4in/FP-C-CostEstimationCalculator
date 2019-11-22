@@ -1,4 +1,10 @@
 #pragma once
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <stdlib.h>
+#include <math.h>
+#include <msclr\marshal_cppstd.h>
 
 namespace FPCCostEstimationCalculator {
 
@@ -8,6 +14,7 @@ namespace FPCCostEstimationCalculator {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for ThirdCalcScreen
@@ -15,7 +22,7 @@ namespace FPCCostEstimationCalculator {
 	public ref class ThirdCalcScreen : public System::Windows::Forms::Form
 	{
 	public:
-		double totFP = 0;
+		double totFP = 0;//SEND THIS VALUE TO RESULTS!!!
 	public:
 		ThirdCalcScreen(void)
 		{
@@ -37,8 +44,126 @@ namespace FPCCostEstimationCalculator {
 		String^ langChoice = "DEFAULT";
 		double devSalary = 0;
 	private: System::Windows::Forms::Button^  refrshButton;
+	private: System::Windows::Forms::Button^  button1;
 	protected:
 		int dataAmt = 1; //1 = Average, 2 = Low, 3 = Median, 4 = High
+
+		//Begin Calculation Functions
+		double getLocMultiplier(string dataAmount, string launguage)
+		{
+			string x = " ";
+			string amount = " ";
+			ifstream inFile;
+			string str = "";
+			string arr[4];
+			double locMultiplier = 0.0;
+			int i = 0;
+
+			inFile.open("laungaugeTable.txt");
+
+			while (x != launguage) {
+				inFile >> x;
+
+			}
+			getline(inFile, amount);
+
+			inFile.close();
+
+
+			stringstream ssin(amount);
+
+			while (ssin.good() && i < 4) {
+				ssin >> arr[i];
+				++i;
+			}
+
+			if (dataAmount == "Avg")
+			{
+				locMultiplier = atof(arr[0].c_str());
+
+			}
+			if (dataAmount == "Median")
+			{
+				locMultiplier = atof(arr[1].c_str());
+
+			}
+			if (dataAmount == "Low")
+			{
+				locMultiplier = atof(arr[2].c_str());
+
+			}
+			if (dataAmount == "High")
+			{
+				locMultiplier = atof(arr[3].c_str());
+			}
+
+			return locMultiplier;
+		}
+
+		double LocCalculation(string dataAmount, string launguage, double fp)
+		{
+			double locMultipler = 0.0;
+			double loc = 0.0;
+			locMultipler = getLocMultiplier(dataAmount, launguage);
+			loc = locMultipler * fp;
+
+			return loc;
+		}
+
+		double finalCalculations(double fp, double loc, string cocomoMode, double yearlySalary)
+		{
+			double a = 0.0;
+			double b = 0.0;
+			double c = 0.0;
+			double d = 0.0;
+			double effort = 0.0;
+			double duration = 0.0;
+			double staffing = 0.0;
+			double numberOfMonths = 0.0;
+			double cost = 0.0;
+
+			if (cocomoMode == "organic")
+			{
+				a = 2.4;
+				b = 1.05;
+				c = 2.5;
+				d = 0.38;
+			}
+			else if (cocomoMode == "semi-detached")
+			{
+				a = 3.0;
+				b = 1.12;
+				c = 2.5;
+				d = 0.35;
+			}
+			else if (cocomoMode == "embedded")
+			{
+				a = 3.6;
+				b = 1.20;
+				c = 2.5;
+				d = 0.32;
+			}
+
+			effort = loc / 1000.0;
+			effort = pow(effort, b);
+			effort = effort * a;
+
+
+			duration = c * effort;
+			duration = pow(effort, d);
+
+			staffing = effort / duration;
+
+
+			numberOfMonths = duration / staffing;
+
+			cost = numberOfMonths * (yearlySalary / 12)*staffing;
+
+
+			return effort, numberOfMonths, cost, staffing;
+
+		}
+		//End Calculation Functions
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -210,6 +335,7 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			this->salaryLabel = (gcnew System::Windows::Forms::Label());
 			this->dataUseLabel = (gcnew System::Windows::Forms::Label());
 			this->refrshButton = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -676,13 +802,14 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			// button39
 			// 
 			this->button39->Enabled = false;
-			this->button39->Location = System::Drawing::Point(618, 396);
+			this->button39->Location = System::Drawing::Point(586, 379);
 			this->button39->Name = L"button39";
-			this->button39->Size = System::Drawing::Size(183, 81);
+			this->button39->Size = System::Drawing::Size(146, 68);
 			this->button39->TabIndex = 41;
-			this->button39->Text = L"Complete Cost Estimation\r\nCalculation and Recieve\r\nResults";
+			this->button39->Text = L"Go to next\r\nCalculation Screen";
 			this->button39->UseVisualStyleBackColor = true;
 			this->button39->Visible = false;
+			this->button39->Click += gcnew System::EventHandler(this, &ThirdCalcScreen::button39_Click);
 			// 
 			// button1_VBdotNET
 			// 
@@ -819,18 +946,28 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			// 
 			// refrshButton
 			// 
-			this->refrshButton->Location = System::Drawing::Point(557, 318);
+			this->refrshButton->Location = System::Drawing::Point(557, 319);
 			this->refrshButton->Name = L"refrshButton";
 			this->refrshButton->Size = System::Drawing::Size(75, 23);
 			this->refrshButton->TabIndex = 55;
 			this->refrshButton->Text = L"Refresh";
 			this->refrshButton->UseVisualStyleBackColor = true;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(219, 346);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 56;
+			this->button1->Text = L"Confirm";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
 			// ThirdCalcScreen
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(870, 515);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->refrshButton);
 			this->Controls->Add(this->dataUseLabel);
 			this->Controls->Add(this->salaryLabel);
@@ -1103,5 +1240,31 @@ private: System::Void button2_VisualBasic_Click(System::Object^  sender, System:
 	languageLabel->Text = "Visual Basic";
 }
 		 //END language selection table choices
+
+		 //user chooses to calculate the cost estimate and move to the next calculation screen
+private: System::Void button39_Click(System::Object^  sender, System::EventArgs^  e) {
+	//calculate estimates
+	//convert dataAmt number into usable string
+	string dataAMTString;
+	if (dataAmt == 1) { dataAMTString = "Avg"; }
+	if (dataAmt == 2) { dataAMTString = "Low"; }
+	if (dataAmt == 3) { dataAMTString = "Median"; }
+	if (dataAmt == 4) { dataAMTString = "High"; }
+
+	//convert the language to something more usable (changing system::String^ langChoice to std::string)
+	String^ tempLangChoice = this->langChoice;
+	string langChoiceConverted = msclr::interop::marshal_as<string>(tempLangChoice);
+
+	//Calculate Lines of Code
+	double linesOfCode; //SEND THIS VALUE TO RESULTS!!!
+
+	linesOfCode = LocCalculation(dataAMTString, langChoiceConverted, totFP);
+
+	//go to the next calculation screen
+	numericUpDown1->Value = (System::Decimal)linesOfCode; //Temporary, for testing
+	//TODO
+
+}
+
 };
 }
