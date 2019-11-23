@@ -71,7 +71,7 @@ namespace FPCCostEstimationCalculator {
 	private:
 
 		//Final Calculations Code
-		double finalCalculations(double fp, double loc, std::string cocomoMode, double yearlySalary)
+		double finalCalculations(double fp, double loc, std::string cocomoMode, double yearlySalary, double(&arr)[4])
 		{
 			double a = 0.0;
 			double b = 0.0;
@@ -120,8 +120,12 @@ namespace FPCCostEstimationCalculator {
 
 			cost = numberOfMonths * (yearlySalary / 12)*staffing;
 
+			arr[0] = effort;
+			arr[1] = numberOfMonths;
+			arr[2] = cost;
+			arr[3] = staffing;
 
-			return effort, numberOfMonths, cost, staffing;
+			return 0.0;
 
 		}
 
@@ -307,8 +311,13 @@ private: System::Void calcButton_Click(System::Object^  sender, System::EventArg
 	double fnumberOfMonths = 0.0;
 	double fcost = 0.0;
 	double fstaffing = 0.0;
+	double fArr[4];
 
-	feffort, fnumberOfMonths, fcost, fstaffing = finalCalculations(totFP, totLOC, modeChoiceConverted, yearlyPay);
+	finalCalculations(totFP, totLOC, modeChoiceConverted, yearlyPay, fArr);
+	feffort = fArr[0];
+	fnumberOfMonths = fArr[1];
+	fcost = fArr[2];
+	fstaffing = fArr[3];
 
 	//go to resluts screen (SEND: total function points, COCOMO mode, Lines of Code, effort, number of months, cost, and staffing)
 	this->Hide();
