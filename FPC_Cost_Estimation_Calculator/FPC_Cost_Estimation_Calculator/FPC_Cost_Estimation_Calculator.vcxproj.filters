@@ -30,6 +30,9 @@
     <ClCompile Include="FinalCalcScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ResultsScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WelcomeScreen.h">
@@ -50,6 +53,9 @@
     <ClInclude Include="FinalCalcScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ResultsScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="WelcomeScreen.resx">
@@ -62,6 +68,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="ThirdCalcScreen.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalCalcScreen.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,5 +1,6 @@
   FPCCostEstimationCalculator.FinalCalcScreen.resources - Embedded, ContainedInManifestFile, 
   FPCCostEstimationCalculator.FirstCalcScreen.resources - Embedded, ContainedInManifestFile, 
+  FPCCostEstimationCalculator.ResultsScreen.resources - Embedded, ContainedInManifestFile, 
   FPCCostEstimationCalculator.SeccondCalcScreen.resources - Embedded, ContainedInManifestFile, 
   FPCCostEstimationCalculator.ThirdCalcScreen.resources - Embedded, ContainedInManifestFile, 
   FPCCostEstimationCalculator.WelcomeScreen.resources - Embedded, ContainedInManifestFile, 
@@ -18,6 +19,18 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class FPCCostEstimationCalculator.ResultsScreen: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Double, Double, System.String, Double, Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double totFP : Public
+    Double totLOC : Public
+    System.String cocModeUsed : Public
+    Double totEffort : Public
+    Double totDuration : Public
+    Double totCost : Public
+    Double totStaff : Public
 Class FPCCostEstimationCalculator.FinalCalcScreen: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

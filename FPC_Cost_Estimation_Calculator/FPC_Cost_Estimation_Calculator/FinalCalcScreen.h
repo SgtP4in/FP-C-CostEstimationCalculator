@@ -5,6 +5,8 @@
 #include <math.h>
 #include <msclr\marshal_cppstd.h>
 
+#include "ResultsScreen.h"
+
 namespace FPCCostEstimationCalculator {
 
 	using namespace System;
@@ -301,15 +303,18 @@ private: System::Void calcButton_Click(System::Object^  sender, System::EventArg
 	std::string modeChoiceConverted = msclr::interop::marshal_as<std::string>(tempModeChoice);
 
 	//complete calculations
-	double effort = 0.0;
-	double numberOfMonths = 0.0;
-	double cost = 0.0;
-	double staffing = 0.0;
+	double feffort = 0.0;
+	double fnumberOfMonths = 0.0;
+	double fcost = 0.0;
+	double fstaffing = 0.0;
 
-	effort, numberOfMonths, cost, staffing = finalCalculations(totFP, totLOC, modeChoiceConverted, yearlyPay);
+	feffort, fnumberOfMonths, fcost, fstaffing = finalCalculations(totFP, totLOC, modeChoiceConverted, yearlyPay);
 
 	//go to resluts screen (SEND: total function points, COCOMO mode, Lines of Code, effort, number of months, cost, and staffing)
-	//TODO
+	this->Hide();
+	ResultsScreen^ form6 = gcnew ResultsScreen(totFP, totLOC, cocMode, feffort, fnumberOfMonths, fcost, fstaffing);
+	form6->ShowDialog();
+
 }
 
 };
