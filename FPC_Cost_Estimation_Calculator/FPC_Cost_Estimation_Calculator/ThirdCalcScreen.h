@@ -6,6 +6,8 @@
 #include <math.h>
 #include <msclr\marshal_cppstd.h>
 
+#include "FinalCalcScreen.h"
+
 namespace FPCCostEstimationCalculator {
 
 	using namespace System;
@@ -1261,8 +1263,11 @@ private: System::Void button39_Click(System::Object^  sender, System::EventArgs^
 	linesOfCode = LocCalculation(dataAMTString, langChoiceConverted, totFP);
 
 	//go to the next calculation screen
-	numericUpDown1->Value = (System::Decimal)linesOfCode; //Temporary, for testing
-	//TODO
+	//numericUpDown1->Value = (System::Decimal)linesOfCode; //Temporary, for testing
+	
+	this->Hide();
+	FinalCalcScreen^ form5 = gcnew FinalCalcScreen(totFP, linesOfCode, devSalary);
+	form5->ShowDialog();
 
 }
 
