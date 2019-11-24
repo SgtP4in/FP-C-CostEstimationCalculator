@@ -80,7 +80,6 @@ namespace FPCCostEstimationCalculator {
 			double effort = 0.0;
 			double duration = 0.0;
 			double staffing = 0.0;
-			double numberOfMonths = 0.0;
 			double cost = 0.0;
 
 			if (cocomoMode == "organic")
@@ -109,19 +108,14 @@ namespace FPCCostEstimationCalculator {
 			effort = pow(effort, b);
 			effort = effort * a;
 
-
-			duration = c * effort;
-			duration = pow(effort, d);
+			duration = c * pow(effort, d);
 
 			staffing = effort / duration;
 
-
-			numberOfMonths = duration / staffing;
-
-			cost = numberOfMonths * (yearlySalary / 12)*staffing;
+			cost = duration * (yearlySalary / 12)*staffing;
 
 			arr[0] = effort;
-			arr[1] = numberOfMonths;
+			arr[1] = duration;
 			arr[2] = cost;
 			arr[3] = staffing;
 
