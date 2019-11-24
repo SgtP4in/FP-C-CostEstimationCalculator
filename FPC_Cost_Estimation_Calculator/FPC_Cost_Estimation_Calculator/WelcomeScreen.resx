@@ -117,4 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="descriptionLabel.Text" xml:space="preserve">
+    <value>﻿This is a basic Cocomo calculator that allows for function point lines of code and effort duration,cost and staffing for a project of your choice.
+
+After clicking start calculation you will specify how many inputs outputs queries files and interfaces your program will have for the function point calculation it will use this chart for it 
+                                          Simple      Avg            complex
+Distinct input                            *3           *4               *6
+Output screens/reports            *4            *5              *7
+Type of user queries                *3            *4               *6
+Number of files                        *7            *10            *15
+External interface                     *5            *7              *10
+
+Then it will add all of them together in a value we will call T afterwards a questionnaire will be used that you will rank all items in importance from 0 to 5 all of these will be added together in a value we will call Q 
+After this the T and Q values will be used to make a function point value using 
+Function points = T * (.65 + .01*Q)
+
+Then it will find the lines of code by getting a multiplication value from a table in the program that data was collected after you specify a language
+Lines of code = function points * lines of code multiplier
+
+Then for the final calculations which will have 3 options for what it is organic semi detached and embedded
+Organic a=2.4,b=1.05,c=2.5,d=.38                             semi detached a=3.0,b=1.12,c=2.5,d=.35
+                                          Embedded a=3.6,b=1.2,c=2.5,d=.32 
+Finally 
+effort =a*(lines of code /1000)^b this will give you the person effort of the project
+Duration = c*effort^d which will give you the duration of the project in months 
+Recommended staffing = effort/duration
+Cost = duration*(yearly salary/12)*staffing yearly salary is something you will enter</value>
+  </data>
 </root>

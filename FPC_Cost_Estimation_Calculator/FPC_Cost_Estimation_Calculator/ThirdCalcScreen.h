@@ -47,6 +47,8 @@ namespace FPCCostEstimationCalculator {
 		double devSalary = 0;
 	private: System::Windows::Forms::Button^  refrshButton;
 	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Label^  label5;
 	protected:
 		int dataAmt = 1; //1 = Average, 2 = Low, 3 = Median, 4 = High
 
@@ -338,6 +340,8 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			this->dataUseLabel = (gcnew System::Windows::Forms::Label());
 			this->refrshButton = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -964,11 +968,37 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			this->button1->Text = L"Confirm";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::SystemColors::MenuHighlight;
+			this->label4->Location = System::Drawing::Point(763, 84);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(71, 17);
+			this->label4->TabIndex = 57;
+			this->label4->Text = L"*Required";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::SystemColors::MenuHighlight;
+			this->label5->Location = System::Drawing::Point(296, 352);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(71, 17);
+			this->label5->TabIndex = 58;
+			this->label5->Text = L"*Required";
+			// 
 			// ThirdCalcScreen
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(870, 515);
+			this->ClientSize = System::Drawing::Size(883, 515);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->refrshButton);
 			this->Controls->Add(this->dataUseLabel);

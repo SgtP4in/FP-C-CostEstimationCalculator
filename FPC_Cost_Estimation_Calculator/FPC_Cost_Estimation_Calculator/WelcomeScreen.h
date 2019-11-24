@@ -59,6 +59,7 @@ namespace FPCCostEstimationCalculator {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(WelcomeScreen::typeid));
 			this->titleLabel = (gcnew System::Windows::Forms::Label());
 			this->welcomeLabel = (gcnew System::Windows::Forms::Label());
 			this->startCalculationButton = (gcnew System::Windows::Forms::Button());
@@ -94,7 +95,7 @@ namespace FPCCostEstimationCalculator {
 			// 
 			this->startCalculationButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->startCalculationButton->Location = System::Drawing::Point(255, 175);
+			this->startCalculationButton->Location = System::Drawing::Point(1195, 352);
 			this->startCalculationButton->Name = L"startCalculationButton";
 			this->startCalculationButton->Size = System::Drawing::Size(135, 69);
 			this->startCalculationButton->TabIndex = 3;
@@ -105,18 +106,18 @@ namespace FPCCostEstimationCalculator {
 			// descriptionLabel
 			// 
 			this->descriptionLabel->AutoSize = true;
-			this->descriptionLabel->Location = System::Drawing::Point(17, 59);
+			this->descriptionLabel->Location = System::Drawing::Point(14, 55);
 			this->descriptionLabel->Name = L"descriptionLabel";
-			this->descriptionLabel->Size = System::Drawing::Size(114, 17);
+			this->descriptionLabel->Size = System::Drawing::Size(1316, 425);
 			this->descriptionLabel->TabIndex = 4;
-			this->descriptionLabel->Text = L"Description Here";
+			this->descriptionLabel->Text = resources->GetString(L"descriptionLabel.Text");
 			// 
 			// devCreditsLabel
 			// 
 			this->devCreditsLabel->AutoSize = true;
 			this->devCreditsLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->devCreditsLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->devCreditsLabel->Location = System::Drawing::Point(20, 282);
+			this->devCreditsLabel->Location = System::Drawing::Point(712, 334);
 			this->devCreditsLabel->Name = L"devCreditsLabel";
 			this->devCreditsLabel->Size = System::Drawing::Size(140, 87);
 			this->devCreditsLabel->TabIndex = 5;
@@ -128,7 +129,7 @@ namespace FPCCostEstimationCalculator {
 			this->sourceCreditsLabel->AutoSize = true;
 			this->sourceCreditsLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->sourceCreditsLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->sourceCreditsLabel->Location = System::Drawing::Point(250, 282);
+			this->sourceCreditsLabel->Location = System::Drawing::Point(858, 334);
 			this->sourceCreditsLabel->Name = L"sourceCreditsLabel";
 			this->sourceCreditsLabel->Size = System::Drawing::Size(162, 19);
 			this->sourceCreditsLabel->TabIndex = 6;
@@ -139,7 +140,7 @@ namespace FPCCostEstimationCalculator {
 			this->supportContactLabel->AutoSize = true;
 			this->supportContactLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->supportContactLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->supportContactLabel->Location = System::Drawing::Point(482, 282);
+			this->supportContactLabel->Location = System::Drawing::Point(1026, 334);
 			this->supportContactLabel->Name = L"supportContactLabel";
 			this->supportContactLabel->Size = System::Drawing::Size(116, 19);
 			this->supportContactLabel->TabIndex = 7;
@@ -149,12 +150,12 @@ namespace FPCCostEstimationCalculator {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(692, 466);
+			this->ClientSize = System::Drawing::Size(1372, 576);
+			this->Controls->Add(this->startCalculationButton);
 			this->Controls->Add(this->supportContactLabel);
 			this->Controls->Add(this->sourceCreditsLabel);
 			this->Controls->Add(this->devCreditsLabel);
 			this->Controls->Add(this->descriptionLabel);
-			this->Controls->Add(this->startCalculationButton);
 			this->Controls->Add(this->welcomeLabel);
 			this->Controls->Add(this->titleLabel);
 			this->Name = L"WelcomeScreen";
