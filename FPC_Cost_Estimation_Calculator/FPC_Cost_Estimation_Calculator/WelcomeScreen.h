@@ -129,22 +129,22 @@ namespace FPCCostEstimationCalculator {
 			this->sourceCreditsLabel->AutoSize = true;
 			this->sourceCreditsLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->sourceCreditsLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->sourceCreditsLabel->Location = System::Drawing::Point(858, 334);
+			this->sourceCreditsLabel->Location = System::Drawing::Point(712, 430);
 			this->sourceCreditsLabel->Name = L"sourceCreditsLabel";
-			this->sourceCreditsLabel->Size = System::Drawing::Size(162, 19);
+			this->sourceCreditsLabel->Size = System::Drawing::Size(440, 104);
 			this->sourceCreditsLabel->TabIndex = 6;
-			this->sourceCreditsLabel->Text = L"External Source Credits:";
+			this->sourceCreditsLabel->Text = resources->GetString(L"sourceCreditsLabel.Text");
 			// 
 			// supportContactLabel
 			// 
 			this->supportContactLabel->AutoSize = true;
 			this->supportContactLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->supportContactLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->supportContactLabel->Location = System::Drawing::Point(1026, 334);
+			this->supportContactLabel->Location = System::Drawing::Point(858, 334);
 			this->supportContactLabel->Name = L"supportContactLabel";
-			this->supportContactLabel->Size = System::Drawing::Size(116, 19);
+			this->supportContactLabel->Size = System::Drawing::Size(148, 36);
 			this->supportContactLabel->TabIndex = 7;
-			this->supportContactLabel->Text = L"Support Contact:";
+			this->supportContactLabel->Text = L"Support Contact:\r\nandrewrd@umich.edu";
 			// 
 			// WelcomeScreen
 			// 

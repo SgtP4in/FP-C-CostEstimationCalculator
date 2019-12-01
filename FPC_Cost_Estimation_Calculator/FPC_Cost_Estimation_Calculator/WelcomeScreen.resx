@@ -144,4 +144,12 @@ Duration = c*effort^d which will give you the duration of the project in months
 Recommended staffing = effort/duration
 Cost = duration*(yearly salary/12)*staffing yearly salary is something you will enter</value>
   </data>
+  <data name="sourceCreditsLabel.Text" xml:space="preserve">
+    <value>External Source Credits:
+"Function Point Languages Table"
+from QSM (Quantitative Software Management),
+used to get multipliers to calculate lines of code
+after performing the Function Point Calculation.
+URL: https://www.qsm.com/resources/function-point-languages-table</value>
+  </data>
 </root>

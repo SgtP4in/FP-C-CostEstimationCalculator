@@ -884,6 +884,7 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			// 
 			// numericUpDown1
 			// 
+			this->numericUpDown1->DecimalPlaces = 2;
 			this->numericUpDown1->Location = System::Drawing::Point(56, 346);
 			this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1410065407, 2, 0, 0 });
 			this->numericUpDown1->Name = L"numericUpDown1";
@@ -958,6 +959,7 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			this->refrshButton->TabIndex = 55;
 			this->refrshButton->Text = L"Refresh";
 			this->refrshButton->UseVisualStyleBackColor = true;
+			this->refrshButton->Click += gcnew System::EventHandler(this, &ThirdCalcScreen::refrshButton_Click);
 			// 
 			// button1
 			// 
@@ -967,6 +969,7 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 			this->button1->TabIndex = 56;
 			this->button1->Text = L"Confirm";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &ThirdCalcScreen::button1_Click);
 			// 
 			// label4
 			// 
@@ -1130,146 +1133,362 @@ private: System::Void ThirdCalcScreen_MouseClick(System::Object^  sender, System
 private: System::Void button1_ABAP_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "ABAP(SAP)";
 	languageLabel->Text = "ABAP(SAP)";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button2_ASP_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "ASP";
 	languageLabel->Text = "ASP";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button3_Assembler_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Assembler";
 	languageLabel->Text = "Assembler";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Brio+";
 	languageLabel->Text = "Brio+";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button5_C_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "C";
 	languageLabel->Text = "C";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void Button6_Cplusplus_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "C++";
 	languageLabel->Text = "C++";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button7_Csharp_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "C#";
 	languageLabel->Text = "C#";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button8_COBOL_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "COBOL";
 	languageLabel->Text = "COBOL";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button9_CoolGenIEF_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Cool:Gen/IEF";
 	languageLabel->Text = "Cool:Gen/IEF";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button10_Datastage_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Datastage";
 	languageLabel->Text = "Datastage";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button11_Excel_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Excel";
 	languageLabel->Text = "Excel";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button12_Focus_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Focus";
 	languageLabel->Text = "Focus";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button13_FoxPro_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "FoxPro";
 	languageLabel->Text = "FoxPro";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button14_HTML_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "HTML";
 	languageLabel->Text = "HTML";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button15_J2EE_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "J2EE";
 	languageLabel->Text = "J2EE";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button16_Java_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Java";
 	languageLabel->Text = "Java";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button17_JavaScript_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "JavaScript";
 	languageLabel->Text = "JavaScript";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button18_JCL_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "JCL";
 	languageLabel->Text = "JCL";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button19_LINC2_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "LINC II";
 	languageLabel->Text = "LINC II";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button20_LotusNotes_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Lotus Notes";
 	languageLabel->Text = "Lotus Notes";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button21_Natural_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Natural";
 	languageLabel->Text = "Natural";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button22_dotNET_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = ".NET";
 	languageLabel->Text = ".NET";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button23_Oracle_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Oracle";
 	languageLabel->Text = "Oracle";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button24_PACBASE_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "PACBASE";
 	languageLabel->Text = "PACBASE";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button25_Perl_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Perl";
 	languageLabel->Text = "Perl";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button26_PLdash1_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "PL/1";
 	languageLabel->Text = "PL/1";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button27_PLdashSQL_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "PL/SQL";
 	languageLabel->Text = "PL/SQL";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button28_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Powerbuilder";
 	languageLabel->Text = "Powerbuilder";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button29_REXX_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "REXX";
 	languageLabel->Text = "REXX";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button30_Sabretalk_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Sabretalk";
 	languageLabel->Text = "Sabretalk";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button31_SAS_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "SAS";
 	languageLabel->Text = "SAS";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button32_Siebel_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Siebel";
 	languageLabel->Text = "Siebel";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button33_SLOGAN_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "SLOGAN";
 	languageLabel->Text = "SLOGAN";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button34_SQL_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "SQL";
 	languageLabel->Text = "SQL";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 private: System::Void button1_VBdotNET_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "VB.NET";
 	languageLabel->Text = "VB.NET";
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
+
 }
 private: System::Void button2_VisualBasic_Click(System::Object^  sender, System::EventArgs^  e) {
 	langChoice = "Visual Basic";
 	languageLabel->Text = "Visual Basic";
+
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 		 //END language selection table choices
 
@@ -1299,6 +1518,22 @@ private: System::Void button39_Click(System::Object^  sender, System::EventArgs^
 	FinalCalcScreen^ form5 = gcnew FinalCalcScreen(totFP, linesOfCode, devSalary);
 	form5->ShowDialog();
 
+}
+
+private: System::Void refrshButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
+}
+
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
+		button39->Enabled = true;
+		button39->Visible = true;
+
+	}
 }
 
 };
