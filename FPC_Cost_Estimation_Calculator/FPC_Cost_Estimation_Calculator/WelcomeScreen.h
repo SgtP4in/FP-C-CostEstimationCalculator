@@ -117,7 +117,7 @@ namespace FPCCostEstimationCalculator {
 			this->devCreditsLabel->AutoSize = true;
 			this->devCreditsLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->devCreditsLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->devCreditsLabel->Location = System::Drawing::Point(712, 334);
+			this->devCreditsLabel->Location = System::Drawing::Point(1049, 334);
 			this->devCreditsLabel->Name = L"devCreditsLabel";
 			this->devCreditsLabel->Size = System::Drawing::Size(140, 87);
 			this->devCreditsLabel->TabIndex = 5;
@@ -129,9 +129,9 @@ namespace FPCCostEstimationCalculator {
 			this->sourceCreditsLabel->AutoSize = true;
 			this->sourceCreditsLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->sourceCreditsLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->sourceCreditsLabel->Location = System::Drawing::Point(712, 430);
+			this->sourceCreditsLabel->Location = System::Drawing::Point(558, 429);
 			this->sourceCreditsLabel->Name = L"sourceCreditsLabel";
-			this->sourceCreditsLabel->Size = System::Drawing::Size(440, 104);
+			this->sourceCreditsLabel->Size = System::Drawing::Size(772, 138);
 			this->sourceCreditsLabel->TabIndex = 6;
 			this->sourceCreditsLabel->Text = resources->GetString(L"sourceCreditsLabel.Text");
 			// 
@@ -140,7 +140,7 @@ namespace FPCCostEstimationCalculator {
 			this->supportContactLabel->AutoSize = true;
 			this->supportContactLabel->BackColor = System::Drawing::SystemColors::Control;
 			this->supportContactLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->supportContactLabel->Location = System::Drawing::Point(858, 334);
+			this->supportContactLabel->Location = System::Drawing::Point(895, 385);
 			this->supportContactLabel->Name = L"supportContactLabel";
 			this->supportContactLabel->Size = System::Drawing::Size(148, 36);
 			this->supportContactLabel->TabIndex = 7;

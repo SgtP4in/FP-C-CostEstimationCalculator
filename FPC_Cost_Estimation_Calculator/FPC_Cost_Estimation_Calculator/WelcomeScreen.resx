@@ -150,6 +150,8 @@ Cost = duration*(yearly salary/12)*staffing yearly salary is something you will 
 from QSM (Quantitative Software Management),
 used to get multipliers to calculate lines of code
 after performing the Function Point Calculation.
-URL: https://www.qsm.com/resources/function-point-languages-table</value>
+URL: https://www.qsm.com/resources/function-point-languages-table
+
+Pressman, Roger S., and Bruce R. Maxim. Software Engineering: a Practitioners Approach. McGraw-Hill Education, 2020.</value>
   </data>
 </root>

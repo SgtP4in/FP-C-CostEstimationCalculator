@@ -1311,7 +1311,7 @@ private: System::Void button18_JCL_Click(System::Object^  sender, System::EventA
 	}
 }
 private: System::Void button19_LINC2_Click(System::Object^  sender, System::EventArgs^  e) {
-	langChoice = "LINC II";
+	langChoice = "LINC_II";
 	languageLabel->Text = "LINC II";
 
 	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
@@ -1321,7 +1321,7 @@ private: System::Void button19_LINC2_Click(System::Object^  sender, System::Even
 	}
 }
 private: System::Void button20_LotusNotes_Click(System::Object^  sender, System::EventArgs^  e) {
-	langChoice = "Lotus Notes";
+	langChoice = "Lotus_Notes";
 	languageLabel->Text = "Lotus Notes";
 
 	if ((devSalary != 0) && (langChoice != "DEFAULT")) {
@@ -1481,7 +1481,7 @@ private: System::Void button1_VBdotNET_Click(System::Object^  sender, System::Ev
 
 }
 private: System::Void button2_VisualBasic_Click(System::Object^  sender, System::EventArgs^  e) {
-	langChoice = "Visual Basic";
+	langChoice = "Visual_Basic";
 	languageLabel->Text = "Visual Basic";
 
 	if ((devSalary != 0) && (langChoice != "DEFAULT")) {

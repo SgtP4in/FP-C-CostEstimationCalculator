@@ -1,4 +1,8 @@
 #pragma once
+#include <fstream>
+#include <string>
+#include <msclr\marshal_cppstd.h>
+#include <filesystem>
 
 namespace FPCCostEstimationCalculator {
 
@@ -103,10 +107,9 @@ namespace FPCCostEstimationCalculator {
 			this->titleLabel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->titleLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->titleLabel->Location = System::Drawing::Point(99, 9);
-			this->titleLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->titleLabel->Location = System::Drawing::Point(132, 11);
 			this->titleLabel->Name = L"titleLabel";
-			this->titleLabel->Size = System::Drawing::Size(311, 39);
+			this->titleLabel->Size = System::Drawing::Size(384, 48);
 			this->titleLabel->TabIndex = 4;
 			this->titleLabel->Text = L"Calculation Results";
 			// 
@@ -115,10 +118,9 @@ namespace FPCCostEstimationCalculator {
 			this->subTitleLabel->AutoSize = true;
 			this->subTitleLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->subTitleLabel->Location = System::Drawing::Point(145, 48);
-			this->subTitleLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->subTitleLabel->Location = System::Drawing::Point(193, 59);
 			this->subTitleLabel->Name = L"subTitleLabel";
-			this->subTitleLabel->Size = System::Drawing::Size(218, 20);
+			this->subTitleLabel->Size = System::Drawing::Size(265, 25);
 			this->subTitleLabel->TabIndex = 46;
 			this->subTitleLabel->Text = L"Generated Project Estimates:";
 			this->subTitleLabel->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -126,9 +128,10 @@ namespace FPCCostEstimationCalculator {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(55, 68);
+			this->label1->Location = System::Drawing::Point(73, 84);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(171, 104);
+			this->label1->Size = System::Drawing::Size(223, 136);
 			this->label1->TabIndex = 47;
 			this->label1->Text = L"Basic COCOMO I mode used:\r\nTotal Function Points:\r\n\r\nLines of Code:\r\nEffort (in p"
 				L"erson months):\r\nDuration (in months):\r\nReccomended Development Staff:\r\nStaffing "
@@ -137,18 +140,21 @@ namespace FPCCostEstimationCalculator {
 			// 
 			// saveButton
 			// 
-			this->saveButton->Location = System::Drawing::Point(77, 182);
+			this->saveButton->Location = System::Drawing::Point(103, 224);
+			this->saveButton->Margin = System::Windows::Forms::Padding(4);
 			this->saveButton->Name = L"saveButton";
-			this->saveButton->Size = System::Drawing::Size(149, 63);
+			this->saveButton->Size = System::Drawing::Size(199, 78);
 			this->saveButton->TabIndex = 48;
 			this->saveButton->Text = L"Save a copy of the results to a text file";
 			this->saveButton->UseVisualStyleBackColor = true;
+			this->saveButton->Click += gcnew System::EventHandler(this, &ResultsScreen::saveButton_Click);
 			// 
 			// restartButton
 			// 
-			this->restartButton->Location = System::Drawing::Point(232, 182);
+			this->restartButton->Location = System::Drawing::Point(369, 225);
+			this->restartButton->Margin = System::Windows::Forms::Padding(4);
 			this->restartButton->Name = L"restartButton";
-			this->restartButton->Size = System::Drawing::Size(149, 63);
+			this->restartButton->Size = System::Drawing::Size(199, 78);
 			this->restartButton->TabIndex = 49;
 			this->restartButton->Text = L"Return to the welcome page and begin a new project estimate";
 			this->restartButton->UseVisualStyleBackColor = true;
@@ -157,71 +163,78 @@ namespace FPCCostEstimationCalculator {
 			// cocomoLabel
 			// 
 			this->cocomoLabel->AutoSize = true;
-			this->cocomoLabel->Location = System::Drawing::Point(232, 68);
+			this->cocomoLabel->Location = System::Drawing::Point(309, 84);
+			this->cocomoLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->cocomoLabel->Name = L"cocomoLabel";
-			this->cocomoLabel->Size = System::Drawing::Size(35, 13);
+			this->cocomoLabel->Size = System::Drawing::Size(46, 17);
 			this->cocomoLabel->TabIndex = 50;
 			this->cocomoLabel->Text = L"label2";
 			// 
 			// locLabel
 			// 
 			this->locLabel->AutoSize = true;
-			this->locLabel->Location = System::Drawing::Point(232, 108);
+			this->locLabel->Location = System::Drawing::Point(309, 133);
+			this->locLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->locLabel->Name = L"locLabel";
-			this->locLabel->Size = System::Drawing::Size(35, 13);
+			this->locLabel->Size = System::Drawing::Size(46, 17);
 			this->locLabel->TabIndex = 51;
 			this->locLabel->Text = L"label2";
 			// 
 			// effortLabel
 			// 
 			this->effortLabel->AutoSize = true;
-			this->effortLabel->Location = System::Drawing::Point(232, 121);
+			this->effortLabel->Location = System::Drawing::Point(309, 149);
+			this->effortLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->effortLabel->Name = L"effortLabel";
-			this->effortLabel->Size = System::Drawing::Size(35, 13);
+			this->effortLabel->Size = System::Drawing::Size(46, 17);
 			this->effortLabel->TabIndex = 52;
 			this->effortLabel->Text = L"label2";
 			// 
 			// durationLabel
 			// 
 			this->durationLabel->AutoSize = true;
-			this->durationLabel->Location = System::Drawing::Point(232, 134);
+			this->durationLabel->Location = System::Drawing::Point(309, 165);
+			this->durationLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->durationLabel->Name = L"durationLabel";
-			this->durationLabel->Size = System::Drawing::Size(35, 13);
+			this->durationLabel->Size = System::Drawing::Size(46, 17);
 			this->durationLabel->TabIndex = 53;
 			this->durationLabel->Text = L"label2";
 			// 
 			// staffLabel
 			// 
 			this->staffLabel->AutoSize = true;
-			this->staffLabel->Location = System::Drawing::Point(232, 147);
+			this->staffLabel->Location = System::Drawing::Point(309, 181);
+			this->staffLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->staffLabel->Name = L"staffLabel";
-			this->staffLabel->Size = System::Drawing::Size(35, 13);
+			this->staffLabel->Size = System::Drawing::Size(46, 17);
 			this->staffLabel->TabIndex = 54;
 			this->staffLabel->Text = L"label2";
 			// 
 			// costLabel
 			// 
 			this->costLabel->AutoSize = true;
-			this->costLabel->Location = System::Drawing::Point(232, 160);
+			this->costLabel->Location = System::Drawing::Point(309, 197);
+			this->costLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->costLabel->Name = L"costLabel";
-			this->costLabel->Size = System::Drawing::Size(35, 13);
+			this->costLabel->Size = System::Drawing::Size(46, 17);
 			this->costLabel->TabIndex = 55;
 			this->costLabel->Text = L"label2";
 			// 
 			// fpLabel
 			// 
 			this->fpLabel->AutoSize = true;
-			this->fpLabel->Location = System::Drawing::Point(232, 81);
+			this->fpLabel->Location = System::Drawing::Point(309, 100);
+			this->fpLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->fpLabel->Name = L"fpLabel";
-			this->fpLabel->Size = System::Drawing::Size(35, 13);
+			this->fpLabel->Size = System::Drawing::Size(46, 17);
 			this->fpLabel->TabIndex = 56;
 			this->fpLabel->Text = L"label2";
 			// 
 			// ResultsScreen
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(516, 257);
+			this->ClientSize = System::Drawing::Size(688, 316);
 			this->Controls->Add(this->fpLabel);
 			this->Controls->Add(this->costLabel);
 			this->Controls->Add(this->staffLabel);
@@ -234,6 +247,7 @@ namespace FPCCostEstimationCalculator {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->subTitleLabel);
 			this->Controls->Add(this->titleLabel);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"ResultsScreen";
 			this->Text = L"ResultsScreen";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &ResultsScreen::ResultsScreen_FormClosed);
@@ -266,6 +280,38 @@ private: System::Void ResultsScreen_FormClosed(System::Object^  sender, System::
 		 //user chooses to restart the program
 private: System::Void restartButton_Click(System::Object^  sender, System::EventArgs^  e) {
 	Application::Restart();
+
+}
+
+		 //user saves a copy of their results to a text file
+private: System::Void saveButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	String^ cocModeUsedT = this->cocModeUsed;
+	String^ totFPT = this->totFP.ToString();
+	String^ totLOCT = this->totLOC.ToString();
+	String^ totEffortT = this->totEffort.ToString();
+	String^ totDurationT = this->totDuration.ToString();
+	String^ totStaffT = this->totStaff.ToString();
+	String^ totCostT = this->totCost.ToString();
+	
+	std::ofstream outFile;
+	outFile.open("Saved_Results.txt");
+	outFile << "Basic COCOMO I Used: " + msclr::interop::marshal_as<std::string>(cocModeUsedT) + "\n" +
+		"Total Function Points: " + msclr::interop::marshal_as<std::string>(totFPT) + "\n" +
+		"Lines of Code: " + msclr::interop::marshal_as<std::string>(totLOCT) + "\n" +
+		"Effort (in person months): " + msclr::interop::marshal_as<std::string>(totEffortT) + "\n" +
+		"Duration (in months): " + msclr::interop::marshal_as<std::string>(totDurationT) + "\n" +
+		"Reccomended Development Staff: " + msclr::interop::marshal_as<std::string>(totStaffT) + "\n" +
+		"Staff Cost: " + msclr::interop::marshal_as<std::string>(totCostT);
+
+	outFile.close();
+
+	saveButton->Enabled = false;
+	saveButton->Location.X = 10;
+	saveButton->Width = saveButton->Width + 50;
+
+	std::experimental::filesystem::path cpath = std::experimental::filesystem::current_path();
+	String^ currPath = gcnew String(cpath.string().c_str());
+	saveButton->Text = "Results Saved to \n" + currPath + "\n" + " As \"Saved_Results.txt\"";
 
 }
 
