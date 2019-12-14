@@ -324,6 +324,9 @@ namespace FPCCostEstimationCalculator {
 
 			 //shuts down the program when the form is closed
 	private: System::Void SeccondCalcScreen_FormClosed(System::Object^  sender, System::Windows::Forms::FormClosedEventArgs^  e) {
+		//delete the language table
+		std::remove("laungaugeTable.txt");
+		
 		Application::Exit();
 
 	}

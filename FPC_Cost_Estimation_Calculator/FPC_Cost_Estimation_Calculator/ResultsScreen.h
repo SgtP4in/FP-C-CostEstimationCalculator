@@ -47,6 +47,9 @@ namespace FPCCostEstimationCalculator {
 			totDuration = durationIn;
 			totCost = costIn;
 			totStaff = staffIn;
+
+			//delete the language table
+			std::remove("laungaugeTable.txt");
 		}
 
 	protected:

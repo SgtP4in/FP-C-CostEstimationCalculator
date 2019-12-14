@@ -271,6 +271,9 @@ namespace FPCCostEstimationCalculator {
 #pragma endregion
 		//user closes the form
 	private: System::Void FinalCalcScreen_FormClosed(System::Object^  sender, System::Windows::Forms::FormClosedEventArgs^  e) {
+		//delete the language table
+		std::remove("laungaugeTable.txt");
+		
 		Application::Exit();
 
 	}

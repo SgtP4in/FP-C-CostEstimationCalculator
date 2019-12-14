@@ -488,6 +488,9 @@ namespace FPCCostEstimationCalculator {
 #pragma endregion
 	//shuts down the application when the red X button is pressed
 	private: System::Void FirstCalcScreen_FormClosed(System::Object^  sender, System::Windows::Forms::FormClosedEventArgs^  e) {
+		//delete the language table
+		std::remove("laungaugeTable.txt");
+		
 		Application::Exit();
 	}
 

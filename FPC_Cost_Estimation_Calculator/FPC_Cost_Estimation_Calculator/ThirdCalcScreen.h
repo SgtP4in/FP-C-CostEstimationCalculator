@@ -1069,6 +1069,9 @@ private: System::Windows::Forms::Label^  dataUseLabel;
 #pragma endregion
 		//closes the program when the screen is closed
 	private: System::Void ThirdCalcScreen_FormClosed(System::Object^  sender, System::Windows::Forms::FormClosedEventArgs^  e) {
+		//delete the language table
+		std::remove("laungaugeTable.txt");
+		
 		Application::Exit();
 
 	}

@@ -170,16 +170,20 @@ namespace FPCCostEstimationCalculator {
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 
-	//shuts down the application when the red X button is pressed
+			 //transfers the user to the next calculation screen
 	private: System::Void startCalculationButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		
 		this->Hide();
 		FirstCalcScreen^ form2 = gcnew FirstCalcScreen();
 		form2->ShowDialog();
 
 	}
 
-	//transfers the user to the next calculation screen
+	//shuts down the application when the red X button is pressed
 	private: System::Void WelcomeScreen_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
+		//delete the language table
+		std::remove("laungaugeTable.txt");
+		
 		Application::Exit();
 	}
 private: System::Void WelcomeScreen_Load(System::Object^  sender, System::EventArgs^  e) {
